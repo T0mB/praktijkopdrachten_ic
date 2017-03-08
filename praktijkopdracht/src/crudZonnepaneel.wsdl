@@ -1,0 +1,58 @@
+<wsdl:definitions targetNamespace="http://DefaultNamespace"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace"
+	xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<!--WSDL created by Apache Axis version: 1.4 Built on Apr 22, 2006 (06:55:48 
+		PDT) -->
+	<wsdl:types>
+		<xsd:schema elementFormDefault="qualified"
+			targetNamespace="http://DefaultNamespace"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+			<xsd:element name="createZP">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="serienummer" type="xsd:int" />
+						<xsd:element name="naam" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="createZPResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="createZPResponse">
+		<wsdl:part element="impl:createZPResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="createZPRequest">
+		<wsdl:part element="impl:createZP" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="crudZonnepaneel">
+		<wsdl:operation name="createZP">
+			<wsdl:input message="impl:createZPRequest" name="createZPRequest"/>
+			<wsdl:output message="impl:createZPResponse" name="createZPResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="crudZonnepaneelSOAPBinding" type="impl:crudZonnepaneel">
+		<wsdlsoap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="createZP">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input>
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="crudZonnepaneel">
+		<wsdl:port binding="impl:crudZonnepaneelSOAPBinding" name="crudZonnepaneelSOAP">
+			<wsdlsoap:address location="http://localhost:8080/Service/services/Create" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
