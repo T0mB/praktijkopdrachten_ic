@@ -23,6 +23,9 @@
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
+			
+			
+			
 		</xsd:schema>
 	</wsdl:types>
 	<wsdl:message name="createZPResponse">
@@ -52,7 +55,7 @@
 	</wsdl:binding>
 	<wsdl:service name="crudZonnepaneel">
 		<wsdl:port binding="impl:crudZonnepaneelSOAPBinding" name="crudZonnepaneelSOAP">
-			<wsdlsoap:address location="http://localhost:8080/Service/services/Create" />
+			<wsdlsoap:address location="http://localhost:8080/Service/services/CreateZonnepaneel" />
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
