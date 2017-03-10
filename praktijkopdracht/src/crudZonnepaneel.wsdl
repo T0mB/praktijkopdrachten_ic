@@ -12,7 +12,7 @@
 				<xsd:complexType>
 					<xsd:sequence>
 						<xsd:element name="serienummer" type="xsd:int" />
-						<xsd:element name="naam" type="xsd:string" />
+						<xsd:element name="postcode" type="xsd:string" />
 					</xsd:sequence>
 				</xsd:complexType>
 			</xsd:element>
