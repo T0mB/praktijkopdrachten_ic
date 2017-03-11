@@ -40,6 +40,23 @@
 				</xsd:complexType>
 			</xsd:element>
 			
+			<xsd:element name="updateZP">
+				<xsd:complexType>
+				<xsd:sequence>
+		 				<xsd:element name="serienummer" type="xsd:string" />
+						<xsd:element name="postcode" type="xsd:string" />
+				</xsd:sequence>	
+				
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="updateZPResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
 			
 			
 		</xsd:schema>
@@ -58,6 +75,12 @@
 		<wsdl:part element="impl:deleteZP" name="parameters"></wsdl:part>
 	</wsdl:message>
 	
+	<wsdl:message name="updateZPResponse">
+		<wsdl:part element="impl:updateZPResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="updateZPRequest">
+		<wsdl:part element="impl:updateZP" name="parameters"></wsdl:part>
+	</wsdl:message>
 	
 	<wsdl:portType name="crudZonnepaneel">
 		<wsdl:operation name="createZP">
@@ -69,6 +92,12 @@
 			<wsdl:input message="impl:deleteZPRequest" name="deleteZPRequest"/>
 			<wsdl:output message="impl:deleteZPResponse" name="deleteZPResponse"/>
 		</wsdl:operation>
+		
+		<wsdl:operation name="updateZP">
+			<wsdl:input message="impl:updateZPRequest" name="updateZPRequest"/>
+			<wsdl:output message="impl:updateZPResponse" name="updateZPResponse"/>
+		</wsdl:operation>
+		
 	</wsdl:portType>
 	
 	
@@ -95,6 +124,17 @@
 				<wsdlsoap:body use="literal" />
 			</wsdl:output>
 		</wsdl:operation>
+		
+		<wsdl:operation name="updateZP">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input>
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
 	</wsdl:binding>
 	<wsdl:service name="crudZonnepaneel">
 		<wsdl:port binding="impl:crudZonnepaneelSOAPBinding" name="crudZonnepaneelSOAP">
