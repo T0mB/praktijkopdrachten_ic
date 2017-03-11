@@ -24,6 +24,22 @@
 				</xsd:complexType>
 			</xsd:element>
 			
+			<xsd:element name="deleteZP">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="serienummer" type="xsd:int" />
+						<xsd:element name="postcode" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="deleteZPResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="out" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
 			
 			
 		</xsd:schema>
@@ -34,16 +50,43 @@
 	<wsdl:message name="createZPRequest">
 		<wsdl:part element="impl:createZP" name="parameters"></wsdl:part>
 	</wsdl:message>
+	
+	<wsdl:message name="deleteZPResponse">
+		<wsdl:part element="impl:deleteZPResponse" name="parameters"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="deleteZPRequest">
+		<wsdl:part element="impl:deleteZP" name="parameters"></wsdl:part>
+	</wsdl:message>
+	
+	
 	<wsdl:portType name="crudZonnepaneel">
 		<wsdl:operation name="createZP">
 			<wsdl:input message="impl:createZPRequest" name="createZPRequest"/>
 			<wsdl:output message="impl:createZPResponse" name="createZPResponse"/>
 		</wsdl:operation>
+		
+		<wsdl:operation name="deleteZP">
+			<wsdl:input message="impl:deleteZPRequest" name="deleteZPRequest"/>
+			<wsdl:output message="impl:deleteZPResponse" name="deleteZPResponse"/>
+		</wsdl:operation>
 	</wsdl:portType>
+	
+	
+	
 	<wsdl:binding name="crudZonnepaneelSOAPBinding" type="impl:crudZonnepaneel">
 		<wsdlsoap:binding style="document"
 			transport="http://schemas.xmlsoap.org/soap/http" />
 		<wsdl:operation name="createZP">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input>
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="deleteZP">
 			<wsdlsoap:operation soapAction="" />
 			<wsdl:input>
 				<wsdlsoap:body use="literal" />
