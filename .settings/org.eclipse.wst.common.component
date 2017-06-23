@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="praktijkopdrachten_ic">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/praktijkopdrachtService/src"/>
+        <property name="context-root" value="praktijkopdrachten_ic"/>
+        <property name="java-output-path" value="/praktijkopdrachten_ic/bin"/>
+    </wb-module>
+</project-modules>
